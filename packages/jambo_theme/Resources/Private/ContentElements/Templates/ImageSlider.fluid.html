@@ -1,0 +1,56 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+    <f:if condition="{files}">
+        <f:comment>
+            Swiper and the init script are registered through the asset collector, so
+            they are only sent to the browser on pages that actually hold a slider.
+        </f:comment>
+        <f:asset.css identifier="swiper" href="EXT:jambo_theme/Resources/Public/Css/swiper-bundle.min.css" />
+        <f:asset.script identifier="swiper" src="EXT:jambo_theme/Resources/Public/JavaScript/swiper-bundle.min.js" />
+        <f:asset.script identifier="jambo-image-slider" src="EXT:jambo_theme/Resources/Public/JavaScript/image-slider.js" />
+
+        <f:variable name="prevLabel">{f:translate(key: 'slider.previous', extensionName: 'JamboTheme')}</f:variable>
+        <f:variable name="nextLabel">{f:translate(key: 'slider.next', extensionName: 'JamboTheme')}</f:variable>
+
+        <div class="image-slider swiper" data-image-slider
+             data-prev-label="{prevLabel}" data-next-label="{nextLabel}">
+            <div class="swiper-wrapper">
+                <f:for each="{files}" as="file" iteration="slide">
+                    <figure class="swiper-slide image-slider__slide">
+                        <f:comment>
+                            The first slide is usually the largest element in the
+                            viewport. Lazy loading it would delay the Largest
+                            Contentful Paint, so it loads eagerly and with priority
+                            while the slides behind it stay lazy.
+                        </f:comment>
+                        <img class="image-slider__image"
+                             src="{f:uri.image(image: file, width: '1280', height: '720c')}"
+                             srcset="{f:uri.image(image: file, width: '640', height: '360c')} 640w, {f:uri.image(image: file, width: '960', height: '540c')} 960w, {f:uri.image(image: file, width: '1280', height: '720c')} 1280w"
+                             sizes="(max-width: 72rem) 100vw, 72rem"
+                             width="1280" height="720"
+                             alt="{file.alternative}" title="{file.title}"
+                             loading="{f:if(condition: slide.isFirst, then: 'eager', else: 'lazy')}"<f:if condition="{slide.isFirst}"> fetchpriority="high"</f:if>
+                             decoding="async">
+                        <f:if condition="{file.description}">
+                            <figcaption class="image-slider__caption">{file.description -> f:format.nl2br()}</figcaption>
+                        </f:if>
+                    </figure>
+                </f:for>
+            </div>
+
+            <f:if condition="{files -> f:count()} > 1">
+                <div class="swiper-pagination image-slider__pagination"></div>
+                <f:comment>
+                    The names live in the markup, so the buttons mean something
+                    before Swiper runs and if its script never arrives.
+                </f:comment>
+                <button class="swiper-button-prev image-slider__button" type="button"><span class="visually-hidden">{prevLabel}</span></button>
+                <button class="swiper-button-next image-slider__button" type="button"><span class="visually-hidden">{nextLabel}</span></button>
+            </f:if>
+        </div>
+    </f:if>
+
+</f:section>
+</html>

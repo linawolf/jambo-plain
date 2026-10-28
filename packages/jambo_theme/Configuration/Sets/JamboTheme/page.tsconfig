@@ -1,0 +1,120 @@
+# Page layouts an editor can choose in the page properties. Each column needs an
+# "identifier" - that is the key the page-content data processor puts the column
+# under, so {content.main} in Fluid is the column with identifier "main".
+mod.web_layout.BackendLayouts {
+    default {
+        title = Home page
+        config {
+            backend_layout {
+                colCount = 1
+                rowCount = 3
+                rows {
+                    1.columns.1 {
+                        name = Hero
+                        identifier = hero
+                        colPos = 1
+                    }
+                    2.columns.1 {
+                        name = Highlights (one tile per element)
+                        identifier = highlights
+                        colPos = 2
+                    }
+                    3.columns.1 {
+                        name = Main content
+                        identifier = main
+                        colPos = 0
+                    }
+                }
+            }
+        }
+    }
+
+    subpage {
+        title = Subpage with section navigation
+        config {
+            backend_layout {
+                colCount = 3
+                rowCount = 1
+                rows {
+                    1.columns {
+                        1 {
+                            name = Main content
+                            identifier = main
+                            colPos = 0
+                            colspan = 2
+                        }
+                        2 {
+                            name = Sidebar
+                            identifier = sidebar
+                            colPos = 2
+                            colspan = 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    # The notices section. The list of notices is built by the template, so the
+    # column is only for an introduction above it.
+    notices {
+        title = Notices, with the list of notices below the text
+        config {
+            backend_layout {
+                colCount = 1
+                rowCount = 1
+                rows {
+                    1.columns.1 {
+                        name = Introduction
+                        identifier = main
+                        colPos = 0
+                    }
+                }
+            }
+        }
+    }
+
+    # The folder that holds the two blocks of the footer. It is a sysfolder, so
+    # the page module shows a note pointing at the list module - the columns
+    # below it still work, and they are what an editor needs.
+    footer {
+        title = Footer blocks
+        config {
+            backend_layout {
+                colCount = 2
+                rowCount = 1
+                rows {
+                    1.columns {
+                        1 {
+                            name = Address
+                            identifier = address
+                            colPos = 0
+                        }
+                        2 {
+                            name = Opening hours
+                            identifier = hours
+                            colPos = 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    easyread {
+        title = Easy Read page
+        config {
+            backend_layout {
+                colCount = 1
+                rowCount = 1
+                rows {
+                    1.columns.1 {
+                        name = Main content
+                        identifier = main
+                        colPos = 0
+                    }
+                }
+            }
+        }
+    }
+}

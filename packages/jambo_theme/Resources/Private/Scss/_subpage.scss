@@ -1,0 +1,99 @@
+.breadcrumb {
+  font-size: 0.9375rem;
+  padding: 1rem 0;
+
+  ol { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; margin: 0; padding: 0; }
+  li + li::before { content: "\203A"; margin-right: 0.5rem; color: var(--ink-muted); }
+}
+
+.page-grid {
+  display: grid;
+  grid-template-columns: 16rem minmax(0, 1fr);
+  // Named areas, because the main column stands first in the source: the page
+  // has to start with its h1, not with the heading of the section navigation.
+  grid-template-areas: "aside main";
+  gap: 3rem;
+  align-items: start;
+  padding-bottom: 4rem;
+
+  &__main { grid-area: main; }
+  &__aside { grid-area: aside; }
+
+  @media (max-width: 48rem) {
+    grid-template-columns: 1fr;
+    grid-template-areas: "aside" "main";
+    gap: 2rem;
+  }
+}
+
+.section-nav {
+  h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--brand);
+  }
+
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { border-bottom: 1px solid var(--line); }
+
+  a {
+    display: block;
+    padding: 0.6rem 0;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+    &[aria-current="page"] { font-weight: 700; color: var(--ink); }
+  }
+}
+
+.prose {
+  max-width: var(--measure);
+
+  > h2 { margin-top: 2.25rem; }
+  ul { padding-left: 1.25rem; }
+  li { margin-bottom: 0.4rem; }
+}
+
+// "lead" is the class the Styles dropdown of the rich text editor writes for a
+// lead paragraph. Naming the theme's class anything else - it was .lede - left
+// an editor with a style they could not apply and, worse, one CKEditor would
+// drop the moment they edited the paragraph, because the class is not in its
+// schema.
+.lead { font-size: 1.1875rem; color: var(--ink-muted); }
+
+// Any table an editor inserts, not only one carrying a class they would have to
+// know about. Every content element renders inside .frame, whatever column or
+// page layout it sits in, so that selector reaches a table on the home page and
+// in the sidebar as well; .prose table catches one in an element whose frame is
+// set to "none". .data-table is kept for the static design in ../../theme.
+.frame table,
+.prose table,
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+
+  caption { text-align: left; font-weight: 700; padding-bottom: 0.5rem; }
+
+  th,
+  td { text-align: left; padding: 0.7rem 0.75rem; border-bottom: 1px solid var(--line); }
+
+  thead th { background: var(--brand-tint); border-bottom: 2px solid var(--brand); }
+}
+
+// .callout is the class of the static design in ../../theme; .frame-callout is
+// what Fluid Styled Content writes when an editor picks the "Callout" frame.
+.callout,
+.frame-callout {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  padding: 1.25rem 1.375rem;
+  margin: 2rem 0;
+
+  h2, h3, h4 { margin-top: 0; }
+  :last-child { margin-bottom: 0; }
+}

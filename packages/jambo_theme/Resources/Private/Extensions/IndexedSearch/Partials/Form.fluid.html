@@ -1,0 +1,20 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>
+    Overrides the form of EXT:indexed_search. The advanced search options of the
+    original are left out on purpose: this site searches one small site, and the
+    masthead form posts the same argument.
+</f:comment>
+<div class="search-form">
+    <f:form action="search" method="post" id="tx_indexedsearch" pageUid="{settings.targetPid}">
+        <f:form.hidden name="search[_sections]" value="0" />
+        <f:form.hidden name="search[_freeIndexUid]" value="_" />
+        <f:form.hidden name="search[pointer]" value="0" />
+
+        <label for="tx-indexedsearch-searchbox-sword"><f:translate key="search.term" extensionName="JamboTheme" /></label>
+        <div class="search-form__row">
+            <f:form.textfield name="search[sword]" value="{sword}" id="tx-indexedsearch-searchbox-sword" />
+            <f:form.submit name="search[submitButton]" value="{f:translate(key: 'search.submit', extensionName: 'JamboTheme')}" />
+        </div>
+    </f:form>
+</div>
+</html>

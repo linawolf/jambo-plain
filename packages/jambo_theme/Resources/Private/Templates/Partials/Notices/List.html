@@ -1,0 +1,47 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>
+    One list of notices, used by the band on the home page and by the notices
+    page itself. {notices} is what the database-query processor returns: one entry
+    per page, each wrapping the row as .data - hence {notice.data.title} and not
+    {notice.title}. The heading is the link, the abstract of the page is the
+    teaser.
+
+    The date is printed twice on purpose: once for a machine in the datetime
+    attribute, always ISO and language-independent, and once for a reader with
+    an ICU pattern, which takes the month name from the locale of the current
+    language - "22 Oktoba 2026" in Swahili, where a PHP format string would
+    have said "October" in every language.
+</f:comment>
+<ul class="notice-list">
+    <f:for each="{notices}" as="notice">
+        <li>
+            <f:if condition="{notice.data.tx_jambotheme_notice_date}">
+                <time datetime="{f:format.date(date: notice.data.tx_jambotheme_notice_date, format: 'Y-m-d')}"><f:format.date date="{notice.data.tx_jambotheme_notice_date}" pattern="d MMMM y" /></time>
+            </f:if>
+            <f:comment>
+                The heading level is given by the caller, because the same list
+                sits at two depths: under the h2 of the band on the home page,
+                and directly under the h1 on the notices page, where an h3 would
+                skip a level. Fluid cannot build a tag name from a variable, so
+                the two cases are spelled out.
+
+                The full title, not nav_title: an editor shortens a nav title to
+                fit a menu, and a notice deserves its whole heading here. (An
+                f:or chain would not have helped either - it falls back only on
+                null, and an unset nav_title is an empty string.)
+            </f:comment>
+            <f:if condition="{headingLevel} == 2">
+                <f:then>
+                    <h2><f:link.page pageUid="{notice.data.uid}">{notice.data.title}</f:link.page></h2>
+                </f:then>
+                <f:else>
+                    <h3><f:link.page pageUid="{notice.data.uid}">{notice.data.title}</f:link.page></h3>
+                </f:else>
+            </f:if>
+            <f:if condition="{notice.data.abstract}">
+                <p>{notice.data.abstract}</p>
+            </f:if>
+        </li>
+    </f:for>
+</ul>
+</html>

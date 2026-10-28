@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+    <file source-language="en" target-language="sw" datatype="plaintext" original="messages" date="2026-10-28T00:00:00Z" product-name="jambo_theme">
+        <header/>
+        <body>
+            <trans-unit id="element.ward.properties.label">
+                <source>Your ward</source>
+                <target>Wodi yako</target>
+            </trans-unit>
+            <trans-unit id="element.street.properties.label">
+                <source>Street or plot number</source>
+                <target>Barabara au nambari ya kiwanja</target>
+            </trans-unit>
+            <trans-unit id="element.missedOn.properties.label">
+                <source>Day the collection was missed</source>
+                <target>Siku ambayo taka hazikuchukuliwa</target>
+            </trans-unit>
+            <trans-unit id="element.wasteType.properties.label">
+                <source>Kind of waste</source>
+                <target>Aina ya taka</target>
+            </trans-unit>
+            <trans-unit id="element.details.properties.label">
+                <source>Anything else we should know</source>
+                <target>Jambo lingine tunalopaswa kujua</target>
+            </trans-unit>
+            <trans-unit id="element.reporterName.properties.label">
+                <source>Your name</source>
+                <target>Jina lako</target>
+            </trans-unit>
+            <trans-unit id="element.reporterEmail.properties.label">
+                <source>Your email address</source>
+                <target>Anwani yako ya barua pepe</target>
+            </trans-unit>
+            <trans-unit id="element.reporterEmail.properties.elementDescription">
+                <source>So we can tell you what happens next. You can leave this empty.</source>
+                <target>Ili tuweze kukueleza kitakachofuata. Unaweza kuacha wazi.</target>
+            </trans-unit>
+            <trans-unit id="element.reporterPhone.properties.label">
+                <source>Your telephone number</source>
+                <target>Nambari yako ya simu</target>
+            </trans-unit>
+            <trans-unit id="element.reporterPhone.properties.elementDescription">
+                <source>You can leave this empty.</source>
+                <target>Unaweza kuacha wazi.</target>
+            </trans-unit>
+            <trans-unit id="element.jambo-waste-report.renderingOptions.submitButtonLabel">
+                <source>Send report</source>
+                <target>Tuma ripoti</target>
+            </trans-unit>
+            <trans-unit id="finisher.Confirmation.message">
+                <source>&lt;p&gt;Thank you. Your report has been recorded. The waste team receives it with the next daily list.&lt;/p&gt;</source>
+                <target>&lt;p&gt;Asante. Ripoti yako imehifadhiwa. Timu ya taka itaipokea katika orodha ya kila siku inayofuata.&lt;/p&gt;</target>
+            </trans-unit>
+            <trans-unit id="validation.error.ward.1221560718">
+                <source>Choose the ward where the collection was missed.</source>
+                <target>Chagua wodi ambapo taka hazikuchukuliwa.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.ward.1221560910">
+                <source>Choose the ward where the collection was missed.</source>
+                <target>Chagua wodi ambapo taka hazikuchukuliwa.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.street.1221560718">
+                <source>Enter the street or plot number.</source>
+                <target>Weka barabara au nambari ya kiwanja.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.street.1221560910">
+                <source>Enter the street or plot number.</source>
+                <target>Weka barabara au nambari ya kiwanja.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.missedOn.1221560718">
+                <source>Enter the day the collection was missed.</source>
+                <target>Weka siku ambayo taka hazikuchukuliwa.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.missedOn.1221560910">
+                <source>Enter the day the collection was missed.</source>
+                <target>Weka siku ambayo taka hazikuchukuliwa.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.wasteType.1221560718">
+                <source>Choose the kind of waste.</source>
+                <target>Chagua aina ya taka.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.wasteType.1221560910">
+                <source>Choose the kind of waste.</source>
+                <target>Chagua aina ya taka.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.reporterName.1221560718">
+                <source>Enter your name.</source>
+                <target>Weka jina lako.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.reporterName.1221560910">
+                <source>Enter your name.</source>
+                <target>Weka jina lako.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.reporterEmail.1221559976">
+                <source>Enter an email address that works, like name@example.com, or leave the field empty.</source>
+                <target>Weka anwani ya barua pepe inayofanya kazi, kama jina@mfano.com, au acha wazi.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.submission-guard.1761638400">
+                <source>Your report could not be sent. Please try again.</source>
+                <target>Ripoti yako haikuweza kutumwa. Tafadhali jaribu tena.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.submission-guard.1761638401">
+                <source>Too many reports from this connection. Please try again later.</source>
+                <target>Ripoti nyingi mno kutoka kwenye mtandao huu. Tafadhali jaribu tena baadaye.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+    <file source-language="en" target-language="sw" datatype="plaintext" original="messages" date="2026-10-28T00:00:00Z" product-name="jambo_theme">
+        <header/>
+        <body>
+            <trans-unit id="element.name.properties.label">
+                <source>Your name</source>
+                <target>Jina lako</target>
+            </trans-unit>
+            <trans-unit id="element.email.properties.label">
+                <source>Email address</source>
+                <target>Anwani ya barua pepe</target>
+            </trans-unit>
+            <trans-unit id="element.subject.properties.label">
+                <source>Subject</source>
+                <target>Mada</target>
+            </trans-unit>
+            <trans-unit id="element.message.properties.label">
+                <source>Your message</source>
+                <target>Ujumbe wako</target>
+            </trans-unit>
+            <trans-unit id="element.jambo-contact.renderingOptions.submitButtonLabel">
+                <source>Send message</source>
+                <target>Tuma ujumbe</target>
+            </trans-unit>
+            <trans-unit id="finisher.Confirmation.message">
+                <source>&lt;p&gt;Thank you. Your message has reached the council and we answer within five working days.&lt;/p&gt;</source>
+                <target>&lt;p&gt;Asante. Ujumbe wako umefika kwa kaunti nasi hujibu ndani ya siku tano za kazi.&lt;/p&gt;</target>
+            </trans-unit>
+            <trans-unit id="finisher.EmailToReceiver.subject">
+                <source>Message from the website</source>
+                <target>Ujumbe kutoka tovuti</target>
+            </trans-unit>
+            <trans-unit id="validation.error.name.1221560718">
+                <source>Enter your name.</source>
+                <target>Weka jina lako.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.name.1221560910">
+                <source>Enter your name.</source>
+                <target>Weka jina lako.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.email.1221560718">
+                <source>Enter your email address, so the council can reply.</source>
+                <target>Weka anwani yako ya barua pepe, ili halmashauri iweze kujibu.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.email.1221560910">
+                <source>Enter your email address, so the council can reply.</source>
+                <target>Weka anwani yako ya barua pepe, ili halmashauri iweze kujibu.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.subject.1221560718">
+                <source>Enter what your message is about.</source>
+                <target>Weka kuhusu nini ujumbe wako.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.subject.1221560910">
+                <source>Enter what your message is about.</source>
+                <target>Weka kuhusu nini ujumbe wako.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.message.1221560718">
+                <source>Enter your message.</source>
+                <target>Weka ujumbe wako.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.message.1221560910">
+                <source>Enter your message.</source>
+                <target>Weka ujumbe wako.</target>
+            </trans-unit>
+            <trans-unit id="validation.error.email.1221559976">
+                <source>Enter an email address that works, like name@example.com.</source>
+                <target>Weka anwani ya barua pepe inayofanya kazi, kama jina@mfano.com.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

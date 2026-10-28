@@ -1,0 +1,23 @@
+{
+    "name": "jambo/theme",
+    "type": "typo3-cms-extension",
+    "description": "Site package (theme) for the Jambo Plain site",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "typo3/cms-core": "^14.3",
+        "typo3/cms-fluid-styled-content": "^14.3",
+        "typo3/cms-seo": "^14.3",
+        "typo3/cms-indexed-search": "^14.3",
+        "typo3/cms-form": "^14.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jambo\\Theme\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "jambo_theme"
+        }
+    }
+}

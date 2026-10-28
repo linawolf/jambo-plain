@@ -1,0 +1,156 @@
+type: Form
+identifier: jambo-waste-report
+label: 'Report a missed waste collection'
+prototypeName: standard
+
+renderingOptions:
+  submitButtonLabel: 'Send report'
+  translation:
+    translationFiles:
+      10: 'EXT:jambo_theme/Resources/Private/Language/Form/wastereport.xlf'
+
+renderables:
+  -
+    type: Page
+    identifier: report-page
+    # No label on purpose: the content element above the form carries the
+    # heading, and EXT:form would render a second <h2> saying the same thing.
+    renderables:
+      -
+        type: SingleSelect
+        identifier: ward
+        label: 'Your ward'
+        properties:
+          # EXT:form does not derive this from the NotEmpty validator: without
+          # it the empty first option submits happily and only the server
+          # complains.
+          fluidAdditionalAttributes:
+            required: required
+          options:
+            '': 'Please choose'
+            jambo-central: 'Jambo Central'
+            jambo-east: 'Jambo East'
+            jambo-west: 'Jambo West'
+            riverside: 'Riverside'
+            market: 'Market'
+            unknown: 'I do not know'
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        type: Text
+        identifier: street
+        label: 'Street or plot number'
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+            autocomplete: street-address
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        type: Date
+        identifier: missedOn
+        label: 'Day the collection was missed'
+        properties:
+          displayFormat: Y-m-d
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        type: SingleSelect
+        identifier: wasteType
+        label: 'Kind of waste'
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+          options:
+            household: 'Household waste'
+            recycling: 'Recycling'
+            garden: 'Garden waste'
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        type: Textarea
+        identifier: details
+        label: 'Anything else we should know'
+        properties:
+          fluidAdditionalAttributes:
+            rows: '4'
+      -
+        type: Text
+        identifier: reporterName
+        label: 'Your name'
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+            autocomplete: name
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        type: Email
+        identifier: reporterEmail
+        label: 'Your email address'
+        properties:
+          elementDescription: 'So we can tell you what happens next. You can leave this empty.'
+          fluidAdditionalAttributes:
+            autocomplete: email
+        validators:
+          -
+            identifier: EmailAddress
+      -
+        type: Telephone
+        identifier: reporterPhone
+        label: 'Your telephone number'
+        properties:
+          elementDescription: 'You can leave this empty.'
+          fluidAdditionalAttributes:
+            autocomplete: tel
+      -
+        type: SubmissionGuard
+        identifier: submission-guard
+        validators:
+          -
+            identifier: SubmissionGuard
+            options:
+              minimumSeconds: 4
+              bucket: waste-report
+              maximumPerHour: 10
+
+finishers:
+  -
+    # No mail per report on purpose: the reports are collected and go out once
+    # a day as one CSV, see jambo:waste:digest.
+    identifier: SaveToDatabase
+    options:
+      table: tx_jambotheme_wastereport
+      mode: insert
+      databaseColumnMappings:
+        pid:
+          value: 1
+      elements:
+        ward:
+          mapOnDatabaseColumn: ward
+        street:
+          mapOnDatabaseColumn: street
+        missedOn:
+          mapOnDatabaseColumn: missed_on
+          dateFormat: Y-m-d
+        wasteType:
+          mapOnDatabaseColumn: waste_type
+        details:
+          mapOnDatabaseColumn: details
+        reporterName:
+          mapOnDatabaseColumn: reporter_name
+        reporterEmail:
+          mapOnDatabaseColumn: reporter_email
+        reporterPhone:
+          mapOnDatabaseColumn: reporter_phone
+  -
+    identifier: Confirmation
+    options:
+      message: '<p>Thank you. Your report has been recorded. The waste team receives it with the next daily list.</p>'

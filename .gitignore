@@ -1,0 +1,22 @@
+.DS_Store
+.idea
+nbproject
+/var/*
+!/var/labels
+/vendor
+/public/*
+!/public/.htaccess
+!/public/robots.txt
+/packages/*/node_modules
+
+# The images the demo content points at. /public/* above excludes everything
+# under public/, so fileadmin has to be let back in explicitly. The thumbnails
+# TYPO3 writes into _processed_ are regenerated on demand and stay out.
+!/public/fileadmin
+/public/fileadmin/_processed_
+/public/fileadmin/**/_temp_
+
+# Unreferenced leftover from an early step of the build: the Swahili labels
+# live in packages/jambo_theme/Resources/Private/Language/sw.locallang.xlf
+# instead. Kept on disk, not published.
+/sw-KE.locallang.xlf

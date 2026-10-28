@@ -1,0 +1,78 @@
+.section {
+  padding: 3rem 0;
+
+  > .wrap > h2 { margin-bottom: 1.5rem; }
+}
+
+.section--alt { background: var(--surface); border-block: 1px solid var(--line); }
+
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: var(--gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tile {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--brand);
+  padding: 1.25rem 1.375rem;
+
+  .section--alt & { background: var(--page); }
+
+  h3 {
+    margin-bottom: 0.35rem;
+
+    a {
+      text-decoration: none;
+
+      &:hover { text-decoration: underline; }
+    }
+  }
+
+  p { margin: 0; color: var(--ink-muted); font-size: 0.9375rem; }
+}
+
+.notice-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    border-top: 1px solid var(--line);
+    padding: 1.125rem 0;
+
+    &:last-child { border-bottom: 1px solid var(--line); }
+  }
+
+  time {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.2rem;
+  }
+
+  // h2 on the notices page, h3 in the band on the home page - the same look
+  // either way, since the level says where the list sits, not how big it is.
+  h2,
+  h3 { margin: 0 0 0.25rem; font-size: 1.0625rem; }
+  p { margin: 0; color: var(--ink-muted); font-size: 0.9375rem; }
+
+  // The heading is the link to the notice. The whole row is not clickable on
+  // purpose: a link that wraps a date, a heading and a paragraph is read out
+  // in one breath by a screen reader, and the title alone says where it goes.
+  h2 a,
+  h3 a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+}
+
+// "See all notices" under a band.
+.section__more {
+  margin: 1.25rem 0 0;
+  font-weight: 700;
+}

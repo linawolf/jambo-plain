@@ -1,0 +1,10 @@
+<nav class="main-nav" aria-label="{f:translate(key: 'nav.main', extensionName: 'JamboTheme')}">
+    <div class="wrap">
+        <ul>
+            <li><a href="{f:uri.page(pageUid: site.rootPageId)}"<f:if condition="{page.id} == {site.rootPageId}"> aria-current="page"</f:if>><f:translate key="nav.home" extensionName="JamboTheme" /></a></li>
+            <f:for each="{mainNavigation}" as="item">
+                <li><a href="{item.link}"<f:if condition="{item.current}"> aria-current="page"</f:if>>{item.title}</a></li>
+            </f:for>
+        </ul>
+    </div>
+</nav>

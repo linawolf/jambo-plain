@@ -1,0 +1,12 @@
+# Jambo County Council
+
+User-agent: *
+Disallow: /typo3/
+# The search result pages carry no content of their own.
+Disallow: /search
+Disallow: /sw/tafuta
+# The error page is reachable only as a 404 response.
+Disallow: /404
+
+Sitemap: https://jambo-plain.ddev.site/sitemap.xml
+Sitemap: https://jambo-plain.ddev.site/sw/sitemap.xml

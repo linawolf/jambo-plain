@@ -1,0 +1,10 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:jambo="http://typo3.org/ns/Jambo/Theme/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<jambo:seo.structuredData
+    siteTitle="{settings.jamboTheme.siteTitle}"
+    baseUrl="{f:uri.page(pageUid: site.rootPageId, absolute: 1)}"
+    logoUrl="{f:uri.resource(path: 'Icons/logo.svg', extensionName: 'jambo_theme', absolute: 1)}"
+    areaServed="Jambo County"
+    breadcrumb="{breadcrumb}" />
+</html>

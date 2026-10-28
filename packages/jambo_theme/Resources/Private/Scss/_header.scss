@@ -1,0 +1,119 @@
+.utility-bar {
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.875rem;
+
+  .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    justify-content: flex-end;
+    padding: 0.5rem 0;
+  }
+
+  a { color: #fff; }
+}
+
+.masthead {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+
+  .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--gap);
+    padding: 1.25rem 0;
+
+    @media (max-width: 48rem) { gap: 1rem; }
+  }
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  text-decoration: none;
+  color: inherit;
+  margin-right: auto;
+
+  img { width: 52px; height: 52px; }
+  .name { display: block; font-size: 1.25rem; font-weight: 700; }
+  .tagline { display: block; font-size: 0.875rem; color: var(--ink-muted); }
+}
+
+.site-search {
+  display: flex;
+
+  label {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden; clip-path: inset(50%);
+  }
+
+  input {
+    border: 2px solid var(--ink);
+    border-right: 0;
+    padding: 0.6rem 0.75rem;
+    font: inherit;
+    min-width: 14rem;
+  }
+
+  button {
+    border: 2px solid var(--ink);
+    background: var(--ink);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    padding: 0.6rem 1.1rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 48rem) {
+    width: 100%;
+
+    input { min-width: 0; width: 100%; }
+  }
+}
+
+.main-nav {
+  background: var(--brand);
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    display: block;
+    padding: 0.9rem 1.15rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover { background: var(--brand-dark); text-decoration: underline; }
+
+    &[aria-current="page"] {
+      background: var(--brand-dark);
+      box-shadow: inset 0 -4px 0 #fff;
+    }
+  }
+}
+
+.language-menu {
+  display: flex;
+  gap: 1.25rem;
+
+  &__item { color: #fff; }
+  &__item--current { font-weight: 700; text-decoration: underline; }
+}
+
+// A language the current page does not exist in: still offered, but it leads
+// to that language's home page rather than to a 404.
+.language-menu__item--fallback {
+  text-decoration-style: dotted;
+  text-underline-offset: 0.2em;
+}

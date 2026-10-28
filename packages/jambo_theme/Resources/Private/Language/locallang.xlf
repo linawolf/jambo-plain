@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2026-10-28T00:00:00Z" product-name="jambo_theme">
+        <header/>
+        <body>
+            <trans-unit id="skipLink">
+                <source>Skip to main content</source>
+            </trans-unit>
+            <trans-unit id="tagline">
+                <source>Serving the people of Jambo County</source>
+            </trans-unit>
+
+            <trans-unit id="utility.accessibility">
+                <source>Accessibility</source>
+            </trans-unit>
+            <trans-unit id="utility.contact">
+                <source>Contact us</source>
+            </trans-unit>
+
+            <trans-unit id="search.label">
+                <source>Search this site</source>
+            </trans-unit>
+            <trans-unit id="search.placeholder">
+                <source>Search services</source>
+            </trans-unit>
+            <trans-unit id="search.submit">
+                <source>Search</source>
+            </trans-unit>
+            <trans-unit id="search.summary">
+                <source>Showing %1$s to %2$s of %3$s results</source>
+            </trans-unit>
+            <trans-unit id="search.noResult">
+                <source>No page matched that search.</source>
+            </trans-unit>
+            <trans-unit id="search.term">
+                <source>Search term</source>
+            </trans-unit>
+
+            <trans-unit id="nav.main">
+                <source>Main navigation</source>
+            </trans-unit>
+            <trans-unit id="nav.home">
+                <source>Home</source>
+            </trans-unit>
+            <trans-unit id="nav.breadcrumb">
+                <source>Breadcrumb</source>
+            </trans-unit>
+            <trans-unit id="nav.language">
+                <source>Language</source>
+            </trans-unit>
+
+            <trans-unit id="nav.languageUnavailable">
+                <source>%1$s - this page is not translated, opens the %1$s home page</source>
+            </trans-unit>
+
+            <trans-unit id="slider.previous">
+                <source>Previous image</source>
+            </trans-unit>
+            <trans-unit id="slider.next">
+                <source>Next image</source>
+            </trans-unit>
+
+            <trans-unit id="form.errorSummary">
+                <source>There is a problem</source>
+            </trans-unit>
+            <trans-unit id="form.errorGeneric">
+                <source>Your form could not be sent. Please check your entries and send it again.</source>
+            </trans-unit>
+            <trans-unit id="validation.submissionGuard">
+                <source>Your message could not be sent. Please try again.</source>
+            </trans-unit>
+            <trans-unit id="validation.rateLimit">
+                <source>Too many messages have been sent from here. Please try again later.</source>
+            </trans-unit>
+
+            <trans-unit id="easy.morePages">
+                <source>Pages you can read next</source>
+            </trans-unit>
+
+            <trans-unit id="phaseBanner.tag">
+                <source>Demo</source>
+            </trans-unit>
+            <trans-unit id="phaseBanner.text">
+                <source>This is a fictional council, built as a demonstration for the TYPO3 Africa Camp.</source>
+            </trans-unit>
+
+            <trans-unit id="home.highlights">
+                <source>Popular services</source>
+            </trans-unit>
+            <trans-unit id="home.notices">
+                <source>Notices and announcements</source>
+            </trans-unit>
+            <trans-unit id="home.noticesMore">
+                <source>See all notices</source>
+            </trans-unit>
+            <trans-unit id="notices.none">
+                <source>There are no notices at the moment.</source>
+            </trans-unit>
+
+            <trans-unit id="footer.services">
+                <source>Services</source>
+            </trans-unit>
+            <trans-unit id="footer.council">
+                <source>The council</source>
+            </trans-unit>
+            <trans-unit id="footer.assembly">
+                <source>County assembly</source>
+            </trans-unit>
+            <trans-unit id="footer.departments">
+                <source>Departments</source>
+            </trans-unit>
+            <trans-unit id="footer.tenders">
+                <source>Tenders</source>
+            </trans-unit>
+            <trans-unit id="footer.hours">
+                <source>Opening hours</source>
+            </trans-unit>
+            <trans-unit id="footer.contact">
+                <source>Contact the council</source>
+            </trans-unit>
+            <trans-unit id="footer.copyright">
+                <source>a fictional council for demonstration purposes</source>
+            </trans-unit>
+            <trans-unit id="footer.accessibility">
+                <source>Accessibility statement</source>
+            </trans-unit>
+            <trans-unit id="footer.privacy">
+                <source>Privacy</source>
+            </trans-unit>
+            <trans-unit id="footer.terms">
+                <source>Terms of use</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

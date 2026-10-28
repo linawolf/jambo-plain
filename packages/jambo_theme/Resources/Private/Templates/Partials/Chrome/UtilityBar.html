@@ -1,0 +1,36 @@
+<div class="utility-bar">
+    <div class="wrap">
+        <f:comment>
+            The language menu comes from the "language-menu" data processor. With
+            fallbackType "strict" a language is only "available" on pages that
+            really have a translation - linking to the page itself would then run
+            into a 404. Such a language is still offered, but pointed at its own
+            home page, so a visitor is never stuck on a page without a way over.
+        </f:comment>
+        <nav class="language-menu" aria-label="{f:translate(key: 'nav.language', extensionName: 'JamboTheme')}">
+            <f:for each="{languageMenu}" as="language">
+                <f:if condition="{language.active}">
+                    <f:then>
+                        <span class="language-menu__item language-menu__item--current" aria-current="true">{language.navigationTitle}</span>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{language.available}">
+                            <f:then>
+                                <a class="language-menu__item" href="{language.link}" hreflang="{language.hreflang}" lang="{language.hreflang}">{language.navigationTitle}</a>
+                            </f:then>
+                            <f:else>
+                                <a class="language-menu__item language-menu__item--fallback"
+                                   href="{f:uri.page(pageUid: site.rootPageId, language: language.languageId)}"
+                                   lang="{language.hreflang}"
+                                   aria-label="{f:translate(key: 'nav.languageUnavailable', extensionName: 'JamboTheme', arguments: {0: language.navigationTitle})}">{language.navigationTitle}</a>
+                            </f:else>
+                        </f:if>
+                    </f:else>
+                </f:if>
+            </f:for>
+        </nav>
+        <f:for each="{utilityMenu}" as="item">
+            <a href="{item.link}"<f:if condition="{item.current}"> aria-current="page"</f:if>>{item.title}</a>
+        </f:for>
+    </div>
+</div>

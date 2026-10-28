@@ -1,0 +1,44 @@
+// The slider sits on top of Swiper's own stylesheet; these are the parts that
+// make it look like the rest of the site. Swiper reads its colours from custom
+// properties, so the brand tokens can be handed straight to it.
+.image-slider {
+  --swiper-theme-color: var(--brand);
+  --swiper-navigation-size: 1.5rem;
+  --swiper-pagination-bullet-inactive-color: #fff;
+  --swiper-pagination-bullet-inactive-opacity: 0.45;
+
+  position: relative;
+  background: var(--ink);
+  margin-bottom: 1.5rem;
+
+  &__slide { margin: 0; }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__caption {
+    padding: 0.75rem 1rem;
+    color: #e7eae8;
+    font-size: 0.9375rem;
+  }
+
+  &__button {
+    // Swiper styles its navigation as plain elements; reset the button chrome.
+    appearance: none;
+    border: 0;
+    padding: 0;
+    background: rgba(4, 69, 45, 0.75);
+    color: #fff;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+
+    &:hover { background: var(--brand-dark); }
+    &::after { font-size: var(--swiper-navigation-size); font-weight: 700; }
+  }
+
+  .swiper-pagination-bullet-active { background: #fff; }
+}

@@ -1,0 +1,24 @@
+# Values for settings that the sets we depend on define.
+styles:
+  templates:
+    # Lets us override single Fluid Styled Content partials, see
+    # Resources/Private/ContentElements/Partials/.
+    partialRootPath: 'EXT:jambo_theme/Resources/Private/ContentElements/Partials/'
+    # Templates for our own content elements, e.g. ImageSlider.fluid.html.
+    templateRootPath: 'EXT:jambo_theme/Resources/Private/ContentElements/Templates/'
+
+indexedsearch:
+  # The page holding the search plugin; the masthead form posts its query here.
+  targetPid: 5
+  # Only index and search pages below the site root.
+  rootPidList: '1'
+  view:
+    templateRootPath: 'EXT:jambo_theme/Resources/Private/Extensions/IndexedSearch/Templates/'
+    partialRootPath: 'EXT:jambo_theme/Resources/Private/Extensions/IndexedSearch/Partials/'
+
+form:
+  templates:
+    # Only to override single partials of EXT:form, see
+    # Resources/Private/Extensions/Form/Partials/.
+    partialRootPath: 'EXT:jambo_theme/Resources/Private/Extensions/Form/Partials/'
+    templateRootPath: 'EXT:jambo_theme/Resources/Private/Extensions/Form/Templates/'

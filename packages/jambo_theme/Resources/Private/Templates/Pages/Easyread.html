@@ -1,0 +1,34 @@
+<f:layout name="Default" />
+
+<f:section name="Breadcrumb">
+    <f:render partial="Navigation/Breadcrumb" arguments="{_all}" />
+</f:section>
+
+<f:section name="Main">
+    <div class="wrap">
+        <f:comment>
+            No section navigation and no sidebar: an Easy Read page offers one
+            path, not a set of choices beside the text.
+        </f:comment>
+        <main id="main" class="easy-page">
+            <!--TYPO3SEARCH_begin-->
+            <f:render.contentArea contentArea="{content.main}" />
+            <!--TYPO3SEARCH_end-->
+
+            <f:comment>
+                Where to go from here. Without it the page is a dead end: the
+                layout carries no section navigation beside the text.
+            </f:comment>
+            <f:if condition="{childPages}">
+                <nav class="easy-links" aria-label="{f:translate(key: 'easy.morePages', extensionName: 'JamboTheme')}">
+                    <h2><f:translate key="easy.morePages" extensionName="JamboTheme" /></h2>
+                    <ul>
+                        <f:for each="{childPages}" as="item">
+                            <li><a href="{item.link}">{item.title}</a></li>
+                        </f:for>
+                    </ul>
+                </nav>
+            </f:if>
+        </main>
+    </div>
+</f:section>

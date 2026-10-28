@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+    <file source-language="en" target-language="sw" datatype="plaintext" original="messages" date="2026-10-28T00:00:00Z" product-name="jambo_theme">
+        <header/>
+        <body>
+            <trans-unit id="skipLink">
+                <source>Skip to main content</source>
+                <target>Rukia yaliyomo makuu</target>
+            </trans-unit>
+            <trans-unit id="tagline">
+                <source>Serving the people of Jambo County</source>
+                <target>Tukiwahudumia wananchi wa Kaunti ya Jambo</target>
+            </trans-unit>
+
+            <trans-unit id="utility.accessibility">
+                <source>Accessibility</source>
+                <target>Ufikivu</target>
+            </trans-unit>
+            <trans-unit id="utility.contact">
+                <source>Contact us</source>
+                <target>Wasiliana nasi</target>
+            </trans-unit>
+
+            <trans-unit id="search.label">
+                <source>Search this site</source>
+                <target>Tafuta katika tovuti hii</target>
+            </trans-unit>
+            <trans-unit id="search.placeholder">
+                <source>Search services</source>
+                <target>Tafuta huduma</target>
+            </trans-unit>
+            <trans-unit id="search.submit">
+                <source>Search</source>
+                <target>Tafuta</target>
+            </trans-unit>
+            <trans-unit id="search.summary">
+                <source>Showing %1$s to %2$s of %3$s results</source>
+                <target>Inaonyesha %1$s hadi %2$s kati ya matokeo %3$s</target>
+            </trans-unit>
+            <trans-unit id="search.noResult">
+                <source>No page matched that search.</source>
+                <target>Hakuna ukurasa uliolingana na utafutaji huo.</target>
+            </trans-unit>
+            <trans-unit id="search.term">
+                <source>Search term</source>
+                <target>Neno la utafutaji</target>
+            </trans-unit>
+
+            <trans-unit id="nav.main">
+                <source>Main navigation</source>
+                <target>Urambazaji mkuu</target>
+            </trans-unit>
+            <trans-unit id="nav.home">
+                <source>Home</source>
+                <target>Mwanzo</target>
+            </trans-unit>
+            <trans-unit id="nav.breadcrumb">
+                <source>Breadcrumb</source>
+                <target>Njia ya ukurasa</target>
+            </trans-unit>
+            <trans-unit id="nav.language">
+                <source>Language</source>
+                <target>Lugha</target>
+            </trans-unit>
+
+            <trans-unit id="nav.languageUnavailable">
+                <source>%1$s - this page is not translated, opens the %1$s home page</source>
+                <target>%1$s - ukurasa huu haujatafsiriwa, utafungua ukurasa wa mwanzo wa %1$s</target>
+            </trans-unit>
+
+            <trans-unit id="slider.previous">
+                <source>Previous image</source>
+                <target>Picha iliyotangulia</target>
+            </trans-unit>
+            <trans-unit id="slider.next">
+                <source>Next image</source>
+                <target>Picha inayofuata</target>
+            </trans-unit>
+
+            <trans-unit id="form.errorSummary">
+                <source>There is a problem</source>
+                <target>Kuna tatizo</target>
+            </trans-unit>
+            <trans-unit id="form.errorGeneric">
+                <source>Your form could not be sent. Please check your entries and send it again.</source>
+                <target>Fomu yako haikuweza kutumwa. Tafadhali angalia majibu yako na uitume tena.</target>
+            </trans-unit>
+            <trans-unit id="validation.submissionGuard">
+                <source>Your message could not be sent. Please try again.</source>
+                <target>Ujumbe wako haukuweza kutumwa. Tafadhali jaribu tena.</target>
+            </trans-unit>
+            <trans-unit id="validation.rateLimit">
+                <source>Too many messages have been sent from here. Please try again later.</source>
+                <target>Jumbe nyingi mno zimetumwa kutoka hapa. Tafadhali jaribu tena baadaye.</target>
+            </trans-unit>
+
+            <trans-unit id="easy.morePages">
+                <source>Pages you can read next</source>
+                <target>Kurasa unazoweza kusoma baadaye</target>
+            </trans-unit>
+
+            <trans-unit id="phaseBanner.tag">
+                <source>Demo</source>
+                <target>Onyesho</target>
+            </trans-unit>
+            <trans-unit id="phaseBanner.text">
+                <source>This is a fictional council, built as a demonstration for the TYPO3 Africa Camp.</source>
+                <target>Hii ni kaunti ya kubuni, iliyotengenezwa kama onyesho kwa TYPO3 Africa Camp.</target>
+            </trans-unit>
+
+            <trans-unit id="home.highlights">
+                <source>Popular services</source>
+                <target>Huduma zinazotumika zaidi</target>
+            </trans-unit>
+            <trans-unit id="home.notices">
+                <source>Notices and announcements</source>
+                <target>Matangazo na taarifa</target>
+            </trans-unit>
+            <trans-unit id="home.noticesMore">
+                <source>See all notices</source>
+                <target>Tazama matangazo yote</target>
+            </trans-unit>
+            <trans-unit id="notices.none">
+                <source>There are no notices at the moment.</source>
+                <target>Hakuna matangazo kwa sasa.</target>
+            </trans-unit>
+
+            <trans-unit id="footer.services">
+                <source>Services</source>
+                <target>Huduma</target>
+            </trans-unit>
+            <trans-unit id="footer.council">
+                <source>The council</source>
+                <target>Serikali ya kaunti</target>
+            </trans-unit>
+            <trans-unit id="footer.assembly">
+                <source>County assembly</source>
+                <target>Bunge la kaunti</target>
+            </trans-unit>
+            <trans-unit id="footer.departments">
+                <source>Departments</source>
+                <target>Idara</target>
+            </trans-unit>
+            <trans-unit id="footer.tenders">
+                <source>Tenders</source>
+                <target>Zabuni</target>
+            </trans-unit>
+            <trans-unit id="footer.hours">
+                <source>Opening hours</source>
+                <target>Saa za kazi</target>
+            </trans-unit>
+            <trans-unit id="footer.contact">
+                <source>Contact the council</source>
+                <target>Wasiliana na kaunti</target>
+            </trans-unit>
+            <trans-unit id="footer.copyright">
+                <source>a fictional council for demonstration purposes</source>
+                <target>kaunti ya kubuni kwa madhumuni ya onyesho</target>
+            </trans-unit>
+            <trans-unit id="footer.accessibility">
+                <source>Accessibility statement</source>
+                <target>Taarifa ya ufikivu</target>
+            </trans-unit>
+            <trans-unit id="footer.privacy">
+                <source>Privacy</source>
+                <target>Faragha</target>
+            </trans-unit>
+            <trans-unit id="footer.terms">
+                <source>Terms of use</source>
+                <target>Masharti ya matumizi</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

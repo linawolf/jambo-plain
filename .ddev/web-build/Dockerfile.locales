@@ -1,0 +1,6 @@
+# The site runs a Swahili language with locale sw_KE.UTF-8. glibc ships the
+# locale source but the image compiles none of it, so PHP's setlocale() fails
+# and TYPO3 logs 'Locale "sw_KE.UTF-8" and "sw_KE" not found.' on every Swahili
+# request. Compiling it once at build time silences that and gives PHP correct
+# collation for the language.
+RUN localedef -i sw_KE -f UTF-8 sw_KE.UTF-8 && localedef -i en_US -f UTF-8 en_US.UTF-8

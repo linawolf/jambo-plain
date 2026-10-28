@@ -1,0 +1,26 @@
+<header class="masthead">
+    <div class="wrap">
+        <a class="identity" href="{f:uri.page(pageUid: site.rootPageId)}">
+            <img src="{f:uri.resource(path: 'Icons/logo.svg', extensionName: 'jambo_theme')}" alt="" width="52" height="52">
+            <span>
+                <span class="name">{settings.jamboTheme.siteTitle}</span>
+                <span class="tagline"><f:translate key="tagline" extensionName="JamboTheme" /></span>
+            </span>
+        </a>
+        <f:comment>
+            Posts straight to the indexed_search plugin on the search page. The
+            page id comes from the same setting the plugin itself reads, so the
+            two can not drift apart. The method has to be POST: plugin arguments
+            are cache relevant, and a GET without a valid cHash is answered with
+            a 404.
+        </f:comment>
+        <form class="site-search" role="search" method="post" action="{f:uri.page(pageUid: settings.indexedsearch.targetPid)}">
+            <label for="q"><f:translate key="search.label" extensionName="JamboTheme" /></label>
+            <input id="q" name="tx_indexedsearch_pi2[search][sword]" type="search"
+                   placeholder="{f:translate(key: 'search.placeholder', extensionName: 'JamboTheme')}">
+            <input type="hidden" name="tx_indexedsearch_pi2[action]" value="search">
+            <input type="hidden" name="tx_indexedsearch_pi2[controller]" value="Search">
+            <button type="submit"><f:translate key="search.submit" extensionName="JamboTheme" /></button>
+        </form>
+    </div>
+</header>

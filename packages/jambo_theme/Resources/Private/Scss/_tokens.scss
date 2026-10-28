@@ -1,0 +1,17 @@
+// Design tokens. These stay CSS custom properties on purpose: they are read at
+// runtime, so a theme can be re-coloured without recompiling the stylesheet.
+:root {
+  --brand: #06603f;
+  --brand-dark: #04452d;
+  --brand-tint: #e8f1ec;
+  --accent: #a8431a;
+  --ink: #14261f;
+  --ink-muted: #4a5a53;
+  --page: #f7f5f0;
+  --surface: #ffffff;
+  --line: #d6d2c8;
+  --focus: #1a1a1a;
+  --measure: 68ch;
+  --gap: 1.5rem;
+  --radius: 2px;
+}

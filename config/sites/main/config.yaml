@@ -1,0 +1,49 @@
+base: 'https://jambo-plain.ddev.site/'
+websiteTitle: 'Jambo County Council'
+dependencies:
+  - jambo/theme
+errorHandling:
+  -
+    errorCode: 404
+    errorHandler: Page
+    # Renders the "Page not found" page (uid 10) in the language of the request.
+    errorContentSource: 't3://page?uid=10'
+languages:
+  -
+    title: English
+    enabled: true
+    languageId: 0
+    base: /
+    locale: en_US.UTF-8
+    navigationTitle: English
+    flag: us
+    fallbackType: strict
+  -
+    title: Swahili
+    enabled: true
+    languageId: 1
+    base: /sw/
+    locale: sw_KE.UTF-8
+    navigationTitle: Kiswahili
+    flag: ke
+    # Only pages that really have a Swahili translation exist under /sw/;
+    # everything else is a 404 there, and the language menu hides it.
+    fallbackType: strict
+  -
+    title: 'Easy Read'
+    enabled: true
+    languageId: 2
+    base: /easy/
+    # A real locale, so PHP's setlocale() and all date formatting keep working;
+    # "easy" is a register of English, not a language of its own.
+    locale: en_US.UTF-8
+    navigationTitle: 'Easy Read'
+    flag: us
+    # Two site languages must not both claim en-US: that is an invalid hreflang
+    # set. A private-use subtag says "English, a variant" without lying.
+    hreflang: en-x-easy
+    # Only pages that were really rewritten exist here. A page in hard English
+    # under an "easy" address would defeat the point.
+    fallbackType: strict
+rootPageId: 1
+routes: {  }

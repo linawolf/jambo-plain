@@ -1,0 +1,56 @@
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <main id="main">
+        <f:comment>EXT:indexed_search only indexes between these markers.</f:comment>
+        <!--TYPO3SEARCH_begin-->
+
+        <f:if condition="{content.hero.records}">
+            <div class="hero">
+                <div class="wrap">
+                    <f:render.contentArea contentArea="{content.hero}" />
+                </div>
+            </div>
+        </f:if>
+
+        <f:if condition="{content.highlights.records}">
+            <section class="section section--alt">
+                <div class="wrap">
+                    <h2><f:translate key="home.highlights" extensionName="JamboTheme" /></h2>
+                    <ul class="tile-grid">
+                        <f:render.contentArea contentArea="{content.highlights}" recordAs="record">
+                            <li class="tile"><f:render.record record="{record}" /></li>
+                        </f:render.contentArea>
+                    </ul>
+                </div>
+            </section>
+        </f:if>
+
+        <f:comment>
+            The notices are pages below the notices section, so each one has an
+            address of its own to link to and to share. The band shows the
+            newest few and sends the reader to the full list.
+        </f:comment>
+        <f:if condition="{latestNotices}">
+            <section class="section">
+                <div class="wrap">
+                    <h2><f:translate key="home.notices" extensionName="JamboTheme" /></h2>
+                    <f:render partial="Notices/List" arguments="{notices: latestNotices}" />
+                    <p class="section__more">
+                        <a href="{f:uri.page(pageUid: settings.jamboTheme.page.notices)}"><f:translate key="home.noticesMore" extensionName="JamboTheme" /></a>
+                    </p>
+                </div>
+            </section>
+        </f:if>
+
+        <f:if condition="{content.main.records}">
+            <section class="section">
+                <div class="wrap">
+                    <f:render.contentArea contentArea="{content.main}" />
+                </div>
+            </section>
+        </f:if>
+
+        <!--TYPO3SEARCH_end-->
+    </main>
+</f:section>

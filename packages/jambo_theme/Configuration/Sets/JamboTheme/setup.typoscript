@@ -1,0 +1,230 @@
+page = PAGE
+page {
+    typeNum = 0
+    shortcutIcon = EXT:jambo_theme/Resources/Public/Icons/favicon.svg
+
+    10 = PAGEVIEW
+    10 {
+        paths.10 = EXT:jambo_theme/Resources/Private/Templates/
+
+        dataProcessing {
+            # Content of every column of the page layout, as {content.<identifier>}
+            10 = page-content
+
+            # Main navigation: the children of the site root
+            20 = menu
+            20 {
+                levels = 1
+                as = mainNavigation
+            }
+
+            # Breadcrumb: the whole rootline down to the current page
+            30 = menu
+            30 {
+                special = rootline
+                special.range = 0|-1
+                as = breadcrumb
+            }
+
+            # Section navigation: the pages beside the current one
+            40 = menu
+            40 {
+                entryLevel = 1
+                levels = 1
+                as = sectionNavigation
+            }
+
+            # The pages below this one. The Easy Read template turns them into
+            # a plain list of links: that layout has no section navigation, so
+            # without this a page could name another page without a way to it.
+            45 = menu
+            45 {
+                special = directory
+                special.value.data = page:uid
+                as = childPages
+            }
+
+            # The page the current section is named after
+            50 = menu
+            50 {
+                special = rootline
+                special.range = 1|1
+                as = sectionRoot
+            }
+
+            # Hand-picked page lists for the chrome. "special = list" drops a
+            # page that does not exist in the current language, so these links
+            # can never run into a 404.
+            55 = menu
+            55 {
+                special = list
+                special.value = {$jamboTheme.menu.utility}
+                # These pages are "hidden in menu" on purpose; they are reached
+                # through the chrome, not through the main navigation.
+                includeNotInMenu = 1
+                as = utilityMenu
+            }
+            56 = menu
+            56 {
+                special = list
+                special.value = {$jamboTheme.menu.council}
+                # These pages are "hidden in menu" on purpose; they are reached
+                # through the chrome, not through the main navigation.
+                includeNotInMenu = 1
+                as = councilMenu
+            }
+            57 = menu
+            57 {
+                special = list
+                special.value = {$jamboTheme.menu.legal}
+                # These pages are "hidden in menu" on purpose; they are reached
+                # through the chrome, not through the main navigation.
+                includeNotInMenu = 1
+                as = legalMenu
+            }
+
+            # The "Services" column of the footer: the children of the
+            # services page, not the main navigation it used to repeat.
+            58 = menu
+            58 {
+                special = directory
+                special.value = {$jamboTheme.menu.services}
+                as = servicesMenu
+            }
+
+            # Notices. They are pages below the notices section, ordered by
+            # the date the council published them - not by their position in
+            # the page tree, which an editor would have to keep sorted by hand.
+            # "languageField" switches the language overlay on; in a strict
+            # language an untranslated notice drops out rather than appearing
+            # in English.
+            70 = database-query
+            70 {
+                table = pages
+                pidInList = {$jamboTheme.page.notices}
+                where = {#doktype} = 1
+                orderBy = tx_jambotheme_notice_date DESC
+                max = {$jamboTheme.notices.latest}
+                languageField = sys_language_uid
+                as = latestNotices
+            }
+
+            # The same list without a limit, for the notices page itself.
+            # Spelled out rather than copied with "=<": the value of a data
+            # processor is a service identifier, and a reference would be handed
+            # to the registry as the literal string "< .70".
+            71 = database-query
+            71 {
+                table = pages
+                pidInList = {$jamboTheme.page.notices}
+                where = {#doktype} = 1
+                orderBy = tx_jambotheme_notice_date DESC
+                languageField = sys_language_uid
+                as = allNotices
+            }
+
+            # Languages this very page exists in
+            60 = language-menu
+            60 {
+                languages = auto
+                as = languageMenu
+            }
+        }
+    }
+
+    meta {
+        viewport = width=device-width, initial-scale=1
+    }
+
+    includeCSS {
+        jamboTheme = EXT:jambo_theme/Resources/Public/Css/main.css
+    }
+}
+
+# The address and the opening hours in the footer are content elements in a
+# folder, not labels in the sitepackage: they change when an office moves or a
+# holiday closes the counters, and that must not need a deployment. One CONTENT
+# object per column of that folder. "languageField" switches the language
+# overlay on, so the Swahili versions appear on the Swahili pages.
+lib.footerAddress = CONTENT
+lib.footerAddress {
+    table = tt_content
+    select {
+        pidInList = {$jamboTheme.page.footer}
+        where = {#colPos} = 0
+        orderBy = sorting
+        languageField = sys_language_uid
+    }
+}
+
+lib.footerHours =< lib.footerAddress
+lib.footerHours.select.where = {#colPos} = 1
+
+config {
+    absRefPrefix = auto
+    disablePrefixComment = 1
+}
+
+# Content element "Image slider" (CType jambotheme_imageslider).
+tt_content.jambotheme_imageslider =< lib.contentElement
+tt_content.jambotheme_imageslider {
+    templateName = ImageSlider
+    dataProcessing {
+        10 = files
+        10 {
+            references.fieldName = assets
+        }
+    }
+}
+
+# EXT:indexed_search renders through our own partials; the extras of the
+# default output are not useful on a site of this size.
+plugin.tx_indexedsearch.settings {
+    displayLevel1Sections = 0
+    displayAdvancedSearchLink = 0
+    displayResultNumber = 0
+}
+
+# <title> reads "<page title> - <website title>". The website title comes from
+# the site configuration, so it translates with the site language.
+config {
+    pageTitleFirst = 1
+    pageTitleSeparator = -
+    # stdWrap, so the separator keeps a space on both sides; a bare value gets
+    # only a trailing one.
+    pageTitleSeparator.noTrimWrap = | | |
+}
+
+# Open Graph and Twitter defaults, so a shared link has a preview even on pages
+# where an editor filled in none of the SEO fields.
+page.meta {
+    og:title.data = page:title
+    og:title.attribute = property
+    og:type = website
+    og:type.attribute = property
+    og:url.data = getIndpEnv:TYPO3_REQUEST_URL
+    og:url.attribute = property
+    og:description.data = page:description
+    og:description.attribute = property
+    og:image.data = getIndpEnv:TYPO3_SITE_URL
+    og:image.wrap = |fileadmin/social/og-default.jpg
+    og:image.attribute = property
+    # og:image:width / :height / :alt cannot be set here: page.meta hands the
+    # meta tag manager an empty sub-property array, and the manager rejects
+    # "og:image:width" as a property of its own (exception 1524209729). They
+    # would need the MetaTagManager API from PHP.
+    twitter:card = summary_large_image
+}
+
+# Content element "Easy Read point" (CType jambotheme_easyread).
+tt_content.jambotheme_easyread =< lib.contentElement
+tt_content.jambotheme_easyread {
+    templateName = EasyRead
+    dataProcessing {
+        10 = files
+        10 {
+            references.fieldName = assets
+        }
+    }
+}
+

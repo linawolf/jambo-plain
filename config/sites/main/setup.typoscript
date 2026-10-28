@@ -1,0 +1,6 @@
+# Site-specific TypoScript for the "main" site.
+#
+# This file is included AFTER all site sets, so anything defined here
+# overrides the theme. Page rendering lives in the site set "jambo/theme"
+# (EXT:jambo_theme/Configuration/Sets/JamboTheme/setup.typoscript).
+# Keep this file for per-site overrides only.

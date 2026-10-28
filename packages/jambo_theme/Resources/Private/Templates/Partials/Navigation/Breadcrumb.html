@@ -1,0 +1,16 @@
+<f:if condition="{breadcrumb}">
+    <nav class="breadcrumb" aria-label="{f:translate(key: 'nav.breadcrumb', extensionName: 'JamboTheme')}">
+        <div class="wrap">
+            <ol>
+                <f:for each="{breadcrumb}" as="item">
+                    <li>
+                        <f:if condition="{item.current}">
+                            <f:then><span aria-current="page">{item.title}</span></f:then>
+                            <f:else><a href="{item.link}">{item.title}</a></f:else>
+                        </f:if>
+                    </li>
+                </f:for>
+            </ol>
+        </div>
+    </nav>
+</f:if>

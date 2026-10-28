@@ -1,0 +1,10 @@
+<f:if condition="{sectionNavigation}">
+    <nav class="section-nav" aria-label="{sectionRoot.0.title}">
+        <h2>{sectionRoot.0.title}</h2>
+        <ul>
+            <f:for each="{sectionNavigation}" as="item">
+                <li><a href="{item.link}"<f:if condition="{item.current}"> aria-current="page"</f:if>>{item.title}</a></li>
+            </f:for>
+        </ul>
+    </nav>
+</f:if>

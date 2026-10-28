@@ -1,0 +1,91 @@
+type: Form
+identifier: jambo-contact
+label: 'Contact the council'
+prototypeName: standard
+
+renderingOptions:
+  submitButtonLabel: 'Send message'
+  # Every label below is looked up in these files first, so the same definition
+  # renders in English and in Swahili.
+  translation:
+    translationFiles:
+      10: 'EXT:jambo_theme/Resources/Private/Language/Form/contact.xlf'
+
+renderables:
+  -
+    type: Page
+    identifier: contact-page
+    # See WasteReport.form.yaml: the heading comes from the content element.
+    renderables:
+      -
+        type: Text
+        identifier: name
+        label: 'Your name'
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+            autocomplete: name
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        type: Email
+        identifier: email
+        label: 'Email address'
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+            autocomplete: email
+        validators:
+          -
+            identifier: NotEmpty
+          -
+            identifier: EmailAddress
+      -
+        type: Text
+        identifier: subject
+        label: 'Subject'
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        type: Textarea
+        identifier: message
+        label: 'Your message'
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+            rows: '8'
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        type: SubmissionGuard
+        identifier: submission-guard
+        validators:
+          -
+            identifier: SubmissionGuard
+            options:
+              minimumSeconds: 4
+              bucket: contact
+              maximumPerHour: 5
+
+finishers:
+  -
+    identifier: EmailToReceiver
+    options:
+      subject: 'Message from the website'
+      recipients:
+        contact@jambo-county.example: 'Jambo County Council'
+      senderAddress: '{email}'
+      senderName: '{name}'
+      replyToRecipients:
+        10: '{email}'
+      addHtmlPart: false
+  -
+    identifier: Confirmation
+    options:
+      message: '<p>Thank you. Your message has reached the council and we answer within five working days.</p>'

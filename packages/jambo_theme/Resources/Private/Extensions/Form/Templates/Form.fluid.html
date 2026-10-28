@@ -1,0 +1,79 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>
+    Copy of the template of EXT:form with a summary of the errors in front of
+    the form: one place that says what went wrong, which is the pattern a
+    visitor using a screen reader expects, and the only place where the error
+    of a hidden element - the submission guard - can be read at all.
+
+    The summary walks the elements of the page instead of the flattened errors
+    of the form, because that is the only way to reach
+    formvh:translateElementError: printing an {error} straight from the
+    validation results gives the untranslated Extbase default ("The given
+    subject was empty"), which names neither the field nor what to do. Both
+    forms here have a single page.
+</f:comment>
+<formvh:renderRenderable renderable="{form}">
+    <formvh:form
+        object="{form}"
+        action="{form.renderingOptions.controllerAction}"
+        method="{form.renderingOptions.httpMethod}"
+        id="{form.identifier}"
+        section="{form.identifier}"
+        enctype="{form.renderingOptions.httpEnctype}"
+        addQueryString="{form.renderingOptions.addQueryString}"
+        argumentsToBeExcludedFromQueryString="{form.renderingOptions.argumentsToBeExcludedFromQueryString}"
+        additionalParams="{form.renderingOptions.additionalParams}"
+        additionalAttributes="{formvh:translateElementProperty(element: form, property: 'fluidAdditionalAttributes')}"
+    >
+        <f:form.validationResults for="{form.identifier}">
+            <f:if condition="{validationResults.flattenedErrors}">
+                <div class="form-errors" role="alert" tabindex="-1">
+                    <h3 class="form-errors__title"><f:translate key="form.errorSummary" extensionName="JamboTheme" /></h3>
+                    <f:variable name="listedErrors" value="0" />
+                    <ul class="form-errors__list">
+                        <f:for each="{form.currentPage.elements}" as="element">
+                            <f:form.validationResults for="{element.rootForm.identifier}.{element.identifier}">
+                                <f:for each="{validationResults.errors}" as="error">
+                                    <f:variable name="listedErrors" value="{listedErrors + 1}" />
+                                    <li>
+                                        <f:if condition="{element.type} == 'SubmissionGuard'">
+                                            <f:then>
+                                                <f:comment>
+                                                    A hidden field: a link would
+                                                    send the visitor to something
+                                                    they can neither see nor fix.
+                                                </f:comment>
+                                                {formvh:translateElementError(element: element, error: error)}
+                                            </f:then>
+                                            <f:else>
+                                                <a href="#{element.uniqueIdentifier}">{formvh:translateElementError(element: element, error: error)}</a>
+                                            </f:else>
+                                        </f:if>
+                                    </li>
+                                </f:for>
+                            </f:form.validationResults>
+                        </f:for>
+                        <f:comment>
+                            An error can belong to no element of the page: the
+                            honeypot is built fresh on every render, so when it
+                            trips, its error points at a field name that no
+                            longer exists. Without this the visitor would get an
+                            empty "There is a problem" box - and a honeypot does
+                            trip on a real person now and then, when the browser
+                            autofills a field it cannot see.
+                        </f:comment>
+                        <f:if condition="{listedErrors} == 0">
+                            <li><f:translate key="form.errorGeneric" extensionName="JamboTheme" /></li>
+                        </f:if>
+                    </ul>
+                </div>
+            </f:if>
+        </f:form.validationResults>
+
+        <f:render partial="{form.currentPage.templateName}" arguments="{page: form.currentPage}" />
+        <div class="{form.renderingOptions.formNavigation.navigationWrapperClassAttribute}">
+            <f:render partial="Form/Navigation" arguments="{form: form}" />
+        </div>
+    </formvh:form>
+</formvh:renderRenderable>
+</html>

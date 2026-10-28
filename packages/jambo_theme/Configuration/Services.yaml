@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Jambo\Theme\:
+    resource: '../Classes/*'
+
+  Jambo\Theme\Command\WasteDigestCommand:
+    tags:
+      - name: console.command
+        command: 'jambo:waste:digest'
+        description: 'Mails the collected reports of missed waste collections as a CSV.'
+        schedulable: true

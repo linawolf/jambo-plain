@@ -1,0 +1,42 @@
+.hero {
+  background: var(--brand-dark);
+  color: #fff;
+
+  .wrap { padding: 3rem 0 3.25rem; max-width: 72rem; }
+  h1 { color: #fff; max-width: 20ch; }
+  p { max-width: var(--measure); font-size: 1.1875rem; color: #e4ece8; }
+  a { color: #fff; }
+
+  // ".hero a" above is a class plus an element, so it outranks the plain
+  // ".button" class and would paint the primary button's label white on white.
+  .button { color: var(--brand-dark); }
+  .button--secondary { color: #fff; }
+
+  // The hero band brings its own padding, so the slider only needs the gap
+  // that separates it from the buttons above it.
+  .image-slider {
+    margin-top: 2rem;
+    margin-bottom: 0;
+  }
+}
+
+.button-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+
+.button {
+  display: inline-block;
+  background: #fff;
+  color: var(--brand-dark);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #fff;
+
+  &:hover { background: var(--brand-tint); }
+}
+
+.button--secondary {
+  background: transparent;
+  color: #fff;
+
+  &:hover { background: rgba(255, 255, 255, 0.12); }
+}

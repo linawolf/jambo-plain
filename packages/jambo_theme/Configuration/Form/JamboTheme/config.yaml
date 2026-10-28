@@ -1,0 +1,25 @@
+name: jambo/theme-forms
+label: 'Jambo Theme form configuration'
+priority: 20
+
+persistenceManager:
+  # Form definitions that ship with this sitepackage, so the contact form is
+  # versioned with the code rather than living in fileadmin.
+  allowedExtensionPaths:
+    10: 'EXT:jambo_theme/Resources/Private/Forms/'
+
+prototypes:
+  standard:
+    formElementsDefinition:
+      SubmissionGuard:
+        implementationClassName: Jambo\Theme\Form\FormElements\SubmissionGuard
+        properties:
+          containerClassAttribute: ''
+          elementClassAttribute: ''
+          renderAsHiddenField: true
+        renderingOptions:
+          templateName: Hidden
+    validatorsDefinition:
+      SubmissionGuard:
+        implementationClassName: Jambo\Theme\Form\Validation\SubmissionGuardValidator
+

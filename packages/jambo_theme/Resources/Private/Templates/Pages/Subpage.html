@@ -1,0 +1,36 @@
+<f:layout name="Default" />
+
+<f:section name="Breadcrumb">
+    <f:render partial="Navigation/Breadcrumb" arguments="{_all}" />
+</f:section>
+
+<f:section name="Main">
+    <div class="wrap">
+        <f:comment>
+            The main column comes first in the source so the page starts with its
+            h1; the section navigation beside it would otherwise put an h2 (and
+            the sidebar an h3) in front of the page heading. Grid areas keep the
+            navigation on the left visually, and above the text on narrow screens.
+        </f:comment>
+        <div class="page-grid">
+
+            <main id="main" class="page-grid__main prose">
+                <f:comment>
+                    Only the prose column is indexed; the section navigation
+                    beside it would otherwise land in every excerpt.
+                </f:comment>
+                <!--TYPO3SEARCH_begin-->
+                <f:render.contentArea contentArea="{content.main}" />
+                <!--TYPO3SEARCH_end-->
+            </main>
+
+            <div class="page-grid__aside">
+                <f:render partial="Navigation/Section" arguments="{_all}" />
+                <f:if condition="{content.sidebar.records}">
+                    <f:render.contentArea contentArea="{content.sidebar}" />
+                </f:if>
+            </div>
+
+        </div>
+    </div>
+</f:section>

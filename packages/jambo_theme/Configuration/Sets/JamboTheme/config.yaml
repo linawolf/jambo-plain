@@ -1,0 +1,8 @@
+name: jambo/theme
+label: Jambo Theme
+dependencies:
+  - typo3/fluid-styled-content
+  - typo3/fluid-styled-content-css
+  - typo3/seo-sitemap
+  - typo3/indexed-search
+  - typo3/form

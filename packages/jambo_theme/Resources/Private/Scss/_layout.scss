@@ -1,0 +1,14 @@
+.wrap {
+  width: min(72rem, 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  background: var(--ink);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+
+  &:focus { left: 1rem; top: 1rem; z-index: 10; }
+}

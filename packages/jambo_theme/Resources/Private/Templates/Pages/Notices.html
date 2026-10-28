@@ -1,0 +1,27 @@
+<f:layout name="Default" />
+
+<f:section name="Breadcrumb">
+    <f:render partial="Navigation/Breadcrumb" arguments="{_all}" />
+</f:section>
+
+<f:section name="Main">
+    <div class="wrap">
+        <main id="main" class="prose">
+            <!--TYPO3SEARCH_begin-->
+            <f:render.contentArea contentArea="{content.main}" />
+            <f:comment>
+                Every notice, newest first. The home page shows the first few of
+                the same list.
+            </f:comment>
+            <f:if condition="{allNotices}">
+                <f:then>
+                    <f:render partial="Notices/List" arguments="{notices: allNotices, headingLevel: 2}" />
+                </f:then>
+                <f:else>
+                    <p><f:translate key="notices.none" extensionName="JamboTheme" /></p>
+                </f:else>
+            </f:if>
+            <!--TYPO3SEARCH_end-->
+        </main>
+    </div>
+</f:section>

@@ -1,0 +1,75 @@
+// The form framework renders Bootstrap-ish class names. Rather than ship
+// Bootstrap for one form, these few rules give them the look of the site.
+.form-element {
+  margin-bottom: 1.25rem;
+  max-width: var(--measure);
+}
+
+.form-label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  border: 2px solid var(--ink);
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+
+  &:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+}
+
+textarea.form-control { resize: vertical; min-height: 9rem; }
+
+.btn {
+  display: inline-block;
+  border: 2px solid var(--brand);
+  background: var(--brand);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+
+  &:hover { background: var(--brand-dark); border-color: var(--brand-dark); }
+}
+
+.form-navigation { margin-top: 1.5rem; }
+
+// Validation. The class names come from the default templates of EXT:form,
+// which are written for Bootstrap: the control gets .is-invalid, the message
+// .invalid-feedback. This theme does not load Bootstrap, so both need styling
+// of their own - and .invalid-feedback is display:none in Bootstrap, so a
+// theme that half-adopted the names would hide the message instead.
+// Colour alone would not be enough, hence the border and the text.
+.is-invalid,
+[aria-invalid="true"] {
+  border-color: var(--accent);
+  border-width: 3px;
+}
+
+.invalid-feedback {
+  display: block;
+  margin-top: 0.35rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid var(--accent);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+// Summary of what went wrong, in front of the form.
+.form-errors {
+  border: 2px solid var(--accent);
+  border-left-width: 6px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  max-width: var(--measure);
+
+  &__title { margin: 0 0 0.5rem; font-size: 1.0625rem; }
+  &__list { margin: 0; padding-left: 1.25rem; }
+  &:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+}

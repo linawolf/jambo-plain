@@ -1,0 +1,44 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>
+    Overrides the result page of EXT:indexed_search: the search box, a line of
+    counts, the hits as a list, and the pager. The section links and the table
+    markup of the original are dropped.
+</f:comment>
+<f:asset.script identifier="indexed_search_pagination" src="EXT:indexed_search/Resources/Public/JavaScript/pagination.js" />
+
+<f:alias map="{sword: searchParams.sword}">
+    <f:render partial="Form" arguments="{_all}" />
+</f:alias>
+
+<f:for each="{resultsets}" as="result" key="freeIndexUid">
+    <f:if condition="{result.count} > 0">
+        <f:then>
+            <p class="search-summary">
+                <f:translate key="search.summary" extensionName="JamboTheme"
+                             arguments="{0: result.pagination.startRecordNumber, 1: result.pagination.endRecordNumber, 2: result.count}" />
+            </p>
+
+            <ul class="search-results">
+                <f:for each="{result.rows}" as="row">
+                    <f:if condition="{row.isSectionHeader} == 0">
+                        <f:render partial="Searchresult" arguments="{row: row, searchParams: searchParams, firstRow: firstRow}" />
+                    </f:if>
+                </f:for>
+            </ul>
+
+            <f:comment>
+                One page of hits needs no pager; the original renders a single
+                dead "Page 1" link in that case.
+            </f:comment>
+            <f:if condition="{result.pagination.allPageNumbers -> f:count()} > 1">
+                <f:render partial="Pagination" arguments="{pagination: result.pagination, searchParams: searchParams, freeIndexUid: freeIndexUid}" />
+            </f:if>
+        </f:then>
+        <f:else>
+            <p class="search-noresult">
+                <f:translate key="search.noResult" extensionName="JamboTheme" />
+            </p>
+        </f:else>
+    </f:if>
+</f:for>
+</html>

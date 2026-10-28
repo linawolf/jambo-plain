@@ -1,0 +1,58 @@
+<footer class="site-footer">
+    <div class="wrap">
+        <div class="footer-grid">
+            <div>
+                <h2>{settings.jamboTheme.siteTitle}</h2>
+                <f:comment>
+                    Address and opening hours are content elements in the folder
+                    named by jamboTheme.page.footer, so an editor can change
+                    them without a deployment.
+                </f:comment>
+                <f:cObject typoscriptObjectPath="lib.footerAddress" />
+            </div>
+            <f:comment>
+                The whole column, heading included, hangs on the condition. In a
+                strict language a menu drops the pages that have no translation,
+                and Easy Read has almost none: without this the footer shows a
+                heading with nothing underneath it.
+            </f:comment>
+            <f:if condition="{servicesMenu}">
+                <div>
+                    <h2><f:translate key="footer.services" extensionName="JamboTheme" /></h2>
+                    <ul>
+                        <f:for each="{servicesMenu}" as="item">
+                            <li><a href="{item.link}"<f:if condition="{item.current}"> aria-current="page"</f:if>>{item.title}</a></li>
+                        </f:for>
+                    </ul>
+                </div>
+            </f:if>
+            <f:if condition="{councilMenu}">
+                <div>
+                    <h2><f:translate key="footer.council" extensionName="JamboTheme" /></h2>
+                    <ul>
+                        <f:for each="{councilMenu}" as="item">
+                            <li><a href="{item.link}"<f:if condition="{item.current}"> aria-current="page"</f:if>>{item.title}</a></li>
+                        </f:for>
+                    </ul>
+                </div>
+            </f:if>
+            <div>
+                <h2><f:translate key="footer.hours" extensionName="JamboTheme" /></h2>
+                <f:cObject typoscriptObjectPath="lib.footerHours" />
+                <p><a href="{f:uri.page(pageUid: settings.jamboTheme.page.contact)}"><f:translate key="footer.contact" extensionName="JamboTheme" /></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="wrap">
+            <p>&copy; <f:format.date format="Y">now</f:format.date> {settings.jamboTheme.siteTitle} &mdash; <f:translate key="footer.copyright" extensionName="JamboTheme" /></p>
+            <f:if condition="{legalMenu}">
+                <ul>
+                    <f:for each="{legalMenu}" as="item">
+                        <li><a href="{item.link}"<f:if condition="{item.current}"> aria-current="page"</f:if>>{item.title}</a></li>
+                    </f:for>
+                </ul>
+            </f:if>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,19 @@
+.phase-banner {
+  background: var(--brand-tint);
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9375rem;
+
+  .wrap { padding: 0.75rem 0; }
+
+  .tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    margin-right: 0.6rem;
+  }
+}

@@ -1,0 +1,42 @@
+settings:
+  jamboTheme.siteTitle:
+    label: 'Name of the authority, shown in the masthead and the footer'
+    type: string
+    default: 'Jambo County Council'
+  jamboTheme.menu.council:
+    label: 'Page ids of the "The council" column in the footer'
+    type: string
+    default: '16,12,14'
+  jamboTheme.menu.legal:
+    label: 'Page ids of the row at the very bottom'
+    type: string
+    default: '20,22,24'
+  jamboTheme.menu.utility:
+    label: 'Page ids of the bar above the masthead'
+    type: string
+    default: '20,18'
+  jamboTheme.menu.services:
+    label: 'Page id whose children fill the "Services" column in the footer'
+    type: int
+    default: 2
+  jamboTheme.page.notices:
+    label: 'Page id of the notices section; its children are the notices'
+    type: int
+    default: 34
+  jamboTheme.notices.latest:
+    label: 'How many notices the home page shows'
+    type: int
+    default: 3
+  jamboTheme.page.footer:
+    label: 'Page id of the folder holding the address and the opening hours'
+    type: int
+    default: 31
+  jamboTheme.page.contact:
+    label: 'Page id of the contact page'
+    type: int
+    default: 18
+
+# Everything else that used to live here - tagline, phase banner, the headings
+# of the home page bands - moved to Resources/Private/Language/locallang.xlf.
+# Site settings are one value per site, not per language, so anything that has
+# to read differently in Swahili belongs in the label file.
